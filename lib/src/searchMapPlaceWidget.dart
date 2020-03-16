@@ -6,6 +6,8 @@ class SearchMapPlaceWidget extends StatefulWidget {
     this.placeholder = 'Search',
     this.icon = Icons.search,
     this.iconColor = Colors.blue,
+    this.leftIcon = Icons.search,
+    this.leftIconColor = Colors.blue,
     this.onSelected,
     this.onSearch,
     this.language = 'en',
@@ -51,6 +53,12 @@ class SearchMapPlaceWidget extends StatefulWidget {
 
   /// The color of the icon to show in the search box
   final Color iconColor;
+
+  /// The icon to show in left side of the search box
+  final IconData leftIcon;
+
+  /// The color of the icon in left side of the search box
+  final Color leftIconColor;
 
   @override
   _SearchMapPlaceWidgetState createState() => _SearchMapPlaceWidgetState();
@@ -135,10 +143,11 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Single
     return Center(
       child: Row(
         children: <Widget>[
-        GestureDetector(
-            child: Icon(this.widget.icon, color: this.widget.iconColor),
+          GestureDetector(
+            child: Icon(this.widget.leftIcon, color: this.widget.leftIconColor),
             //onTap: () => widget.onSearch(Place.fromJSON(_selectedPlace, geocode)),
           ),
+          Container(width: 15),
           Expanded(
             child: TextField(
               decoration: _inputStyle(),
