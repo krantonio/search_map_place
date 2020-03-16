@@ -135,6 +135,10 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Single
     return Center(
       child: Row(
         children: <Widget>[
+        GestureDetector(
+            child: Icon(this.widget.icon, color: this.widget.iconColor),
+            //onTap: () => widget.onSearch(Place.fromJSON(_selectedPlace, geocode)),
+          ),
           Expanded(
             child: TextField(
               decoration: _inputStyle(),
