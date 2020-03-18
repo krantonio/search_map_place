@@ -148,7 +148,9 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Single
             //onTap: () => widget.onSearch(Place.fromJSON(_selectedPlace, geocode)),
             onTap: () {
               _textEditingController.clear();
-              _placePredictions.clear();
+              setState(() {
+                _placePredictions.clear();
+              });
             }
           ),
           Container(width: 15),
