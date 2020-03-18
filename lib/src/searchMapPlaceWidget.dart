@@ -146,6 +146,9 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Single
           GestureDetector(
             child: Icon(this.widget.leftIcon, color: this.widget.leftIconColor),
             //onTap: () => widget.onSearch(Place.fromJSON(_selectedPlace, geocode)),
+            onTap: () {
+              _textEditingController.clear();
+            }
           ),
           Container(width: 15),
           Expanded(
@@ -154,6 +157,9 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Single
               controller: _textEditingController,
               style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.04),
               onChanged: (value) => setState(() => _autocompletePlace(value)),
+              onTap: () {
+                FocusScope.of(context).requestFocus(new FocusNode());
+              },
             ),
           ),
           Container(width: 15),
